@@ -1,6 +1,9 @@
 import { AiFillHome } from "react-icons/ai";
 import { BsLightbulbFill, BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import { FiGithub } from "react-icons/fi";
+import { IoMailOutline, IoImagesOutline } from "react-icons/io5";
+import { FiLinkedin } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 type FooterProps = {
@@ -61,7 +64,10 @@ export default function Footer({ theme, location, toggleTheme }: FooterProps) {
           />
         </Link>
         <div
-          className={`flex ${
+          onClick={() =>
+            window.open("https://github.com/IslemMedjahdi", "_blank")
+          }
+          className={`group flex active:bg-blue-500 ${
             location === 3 ? "bg-blue-500" : "bg-gray-100 dark:bg-gray-800"
           } ${
             location === 3 || location === 4 || location === 2
@@ -69,14 +75,17 @@ export default function Footer({ theme, location, toggleTheme }: FooterProps) {
               : "scale-95"
           } cursor-pointer items-center justify-center rounded-xl p-2  transition duration-200 hover:scale-110 hover:opacity-80`}
         >
-          <AiFillHome
-            className={`h-7 w-7 ${
+          <FiGithub
+            className={`h-7 w-7 transition duration-200 group-active:text-white ${
               location === 3 ? "text-white" : "text-gray-600"
             } dark:text-white`}
           />
         </div>
         <div
-          className={`flex ${
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/islem-medjahdi/", "_blank")
+          }
+          className={`group  flex active:bg-blue-500 ${
             location === 4 ? "bg-blue-500" : "bg-gray-100 dark:bg-gray-800"
           } ${
             location === 4 || location === 3 || location === 5
@@ -85,13 +94,14 @@ export default function Footer({ theme, location, toggleTheme }: FooterProps) {
           } cursor-pointer items-center justify-center rounded-xl p-2  transition duration-200 hover:scale-110 hover:opacity-80`}
         >
           {" "}
-          <AiFillHome
-            className={`h-7 w-7 ${
+          <FiLinkedin
+            className={`h-7 w-7 group-active:text-white ${
               location === 4 ? "text-white" : "text-gray-600"
             } dark:text-white`}
-          />{" "}
+          />
         </div>
-        <div
+        <Link
+          to={"/gallery"}
           className={`flex ${
             location === 5 ? "bg-blue-500" : "bg-gray-100 dark:bg-gray-800"
           } ${
@@ -101,13 +111,14 @@ export default function Footer({ theme, location, toggleTheme }: FooterProps) {
           } cursor-pointer items-center justify-center rounded-xl p-2  transition duration-200 hover:scale-110 hover:opacity-80`}
         >
           {" "}
-          <AiFillHome
+          <IoImagesOutline
             className={`h-7 w-7 ${
               location === 5 ? "text-white" : "text-gray-600"
             } dark:text-white`}
           />{" "}
-        </div>
-        <div
+        </Link>
+        <Link
+          to={"/contact"}
           className={`flex ${
             location === 6 ? "bg-blue-500" : "bg-gray-100 dark:bg-gray-800"
           } ${
@@ -116,28 +127,12 @@ export default function Footer({ theme, location, toggleTheme }: FooterProps) {
               : "scale-95"
           } cursor-pointer items-center justify-center rounded-xl p-2  transition duration-200 hover:scale-110 hover:opacity-80`}
         >
-          <AiFillHome
+          <IoMailOutline
             className={`h-7 w-7 ${
               location === 6 ? "text-white" : "text-gray-600"
             } dark:text-white`}
           />
-        </div>
-        <div
-          className={`flex ${
-            location === 7 ? "bg-blue-500" : "bg-gray-100 dark:bg-gray-800"
-          } ${
-            location === 7 || location === 6 || location === 8
-              ? "scale-110"
-              : "scale-95"
-          } cursor-pointer items-center justify-center rounded-xl p-2  transition duration-200 hover:scale-110 hover:opacity-80`}
-        >
-          {" "}
-          <AiFillHome
-            className={`h-7 w-7 ${
-              location === 7 ? "text-white" : "text-gray-600"
-            } dark:text-white`}
-          />{" "}
-        </div>
+        </Link>
       </div>
       <div className="py-2 pr-5">
         <div className="h-4/5 w-px bg-gray-600" />

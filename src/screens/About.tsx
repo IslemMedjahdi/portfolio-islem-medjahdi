@@ -6,6 +6,23 @@ type AboutProps = {
   toggleTheme: () => void;
 };
 
+type TypeSkill = {
+  name: string;
+  value: number;
+};
+
+const skills: TypeSkill[] = [
+  { name: "HTML", value: 97 },
+  { name: "CSS / TAILWIND", value: 97 },
+  { name: "JavaScript / ES6", value: 95 },
+  { name: "TypeScript", value: 90 },
+  { name: "ReactJS", value: 95 },
+  { name: "NextJs", value: 60 },
+  { name: "React Native", value: 90 },
+  { name: "Firebase", value: 90 },
+  { name: "GIT & GITHUB", value: 95 },
+];
+
 export default function About({ theme, toggleTheme }: AboutProps) {
   return (
     <div className={`${theme ? "dark" : ""}`}>
@@ -30,7 +47,7 @@ export default function About({ theme, toggleTheme }: AboutProps) {
             A Front-end Developer from Algeria. I am a high school student of
             Computer Science (ESI Algiers ex.INI). I've always been fascinated
             with how things work. fast forward to 2 years into school and i'm
-            now structuring,developing and implementing incredible web and
+            now structuring, developing and implementing incredible web and
             mobile apps.
           </p>
           <p className="mt-6 tracking-wide text-gray-600 dark:text-gray-50">
@@ -44,6 +61,25 @@ export default function About({ theme, toggleTheme }: AboutProps) {
             <button className="rounded-md bg-blue-600 px-8  py-2 font-Space text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95">
               Say Hello
             </button>
+          </div>
+          <div className="mt-20 w-full space-y-5">
+            <h1 className="font-Space text-3xl font-bold text-gray-800  dark:text-white md:text-4xl">
+              PRO SKILLS :
+            </h1>
+            <div className="!mt-10 flex flex-wrap justify-center gap-4">
+              {skills.map((skill, index) => (
+                <div key={index} className="flex w-96 items-center space-x-2">
+                  <p className="whitespace-nowrap font-Space font-bold text-gray-600 dark:text-gray-50">
+                    {skill.name}
+                  </p>
+                  <progress
+                    className="progress dark:progress-info"
+                    value={skill.value}
+                    max="100"
+                  ></progress>
+                </div>
+              ))}
+            </div>
           </div>
         </main>
         <Footer location={2} theme={theme} toggleTheme={toggleTheme} />
