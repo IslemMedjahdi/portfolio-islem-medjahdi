@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Project from "../components/Project";
+import { motion } from "framer-motion";
 import markdownScreenShot from "../assets/markdownScreenShot.png";
 import CountryFinderScreenShot from "../assets/CountryFinderScreenShot.png";
 import APSScreenShot from "../assets/APSScreenShot.png";
@@ -68,12 +69,23 @@ export default function Projects({ theme, toggleTheme }: ProjectsProps) {
           <h1 className="font-Space text-4xl font-bold  text-gray-600 dark:text-white md:text-5xl">
             Projects 💡
           </h1>
-          <p className="mt-5 font-Space text-gray-600 dark:text-gray-50">
+          <p className="mt-5 font-Space text-gray-600  dark:text-gray-50">
             Some things i've been working on in the past few years:
           </p>
           <div>
             {projects.map((project, index) => (
-              <Project index={index} key={project.id} {...project} />
+              <motion.div
+                initial={{ x: index % 2 === 0 ? "-100vw" : "100vw" }}
+                animate={{ x: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.2,
+                  stiffness: 50,
+                  type: "spring",
+                }}
+              >
+                <Project index={index} key={project.id} {...project} />
+              </motion.div>
             ))}
           </div>
         </main>
