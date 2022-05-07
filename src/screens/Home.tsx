@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 type HomeProps = {
   theme: boolean;
   toggleTheme: () => void;
@@ -11,6 +12,10 @@ export default function Home({ theme, toggleTheme }: HomeProps) {
   const navigate = useNavigate();
   return (
     <div className={`${theme ? "dark" : ""}`}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Portfolio | Medjahdi </title>
+      </Helmet>
       <div className="relative flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition dark:bg-[#111827]">
         <div className="absolute right-20 top-20 h-44 w-72 -rotate-[14deg] rounded-lg bg-blue-400 opacity-25 blur-3xl" />
         <div className="absolute left-20 bottom-1/3 h-44 w-52  -rotate-12 rounded-md bg-blue-400 opacity-25 blur-3xl" />

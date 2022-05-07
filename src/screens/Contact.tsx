@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
+import { Helmet } from "react-helmet";
 
 type ContactProps = {
   theme: boolean;
@@ -57,7 +58,11 @@ export default function Contact({ theme, toggleTheme }: ContactProps) {
   };
   return (
     <div className={`${theme ? "dark" : ""}`}>
-      <div className="relative flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition dark:bg-[#111827]">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Portfolio | Medjahdi | Contact </title>
+      </Helmet>
+      <div className="relative flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-300 dark:bg-[#111827] dark:scrollbar-thumb-gray-800 dark:scrollbar-track-gray-900">
         <Header />
         <main className="container mt-12 mb-[20vh] flex max-w-4xl flex-col items-start justify-center px-10">
           <motion.h1

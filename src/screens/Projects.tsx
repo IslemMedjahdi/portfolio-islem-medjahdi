@@ -6,6 +6,7 @@ import markdownScreenShot from "../assets/markdownScreenShot.png";
 import CountryFinderScreenShot from "../assets/CountryFinderScreenShot.png";
 import APSScreenShot from "../assets/APSScreenShot.png";
 import DOMEScreenShot from "../assets/DOMEScreenShot.png";
+import { Helmet } from "react-helmet";
 type ProjectsProps = {
   theme: boolean;
   toggleTheme: () => void;
@@ -61,7 +62,11 @@ const projects: ProjectType[] = [
 export default function Projects({ theme, toggleTheme }: ProjectsProps) {
   return (
     <div className={`${theme ? "dark" : ""}`}>
-      <div className="relative flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition dark:bg-[#111827]">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Portfolio | Medjahdi | Projects </title>
+      </Helmet>
+      <div className="relative flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-300 dark:bg-[#111827] dark:scrollbar-thumb-gray-800 dark:scrollbar-track-gray-900">
         <div className="fixed right-20 top-20 h-44 w-72 -rotate-[14deg] rounded-lg bg-blue-400 opacity-25 blur-3xl" />
         <div className="fixed left-20 bottom-1/3 h-44 w-52  -rotate-12 rounded-md bg-blue-400 opacity-25 blur-3xl" />
         <Header />

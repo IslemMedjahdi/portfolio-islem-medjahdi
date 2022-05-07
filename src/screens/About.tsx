@@ -4,6 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 type AboutProps = {
   theme: boolean;
   toggleTheme: () => void;
@@ -44,9 +45,12 @@ export default function About({ theme, toggleTheme }: AboutProps) {
       animation.start({ x: "-100vw" });
     }
   }, [inView, animation]);
-
   return (
     <div className={`${theme ? "dark" : ""}`}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Portfolio | Medjahdi | About </title>
+      </Helmet>
       <div className=" relative  flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-300 dark:bg-[#111827] dark:scrollbar-thumb-gray-800 dark:scrollbar-track-gray-900">
         <div className="absolute right-20 top-20 h-44 w-72 -rotate-[14deg] rounded-lg bg-blue-400 opacity-25 blur-3xl" />
         <div className="absolute left-20 bottom-1/3 h-44 w-52  -rotate-12 rounded-md bg-blue-400 opacity-25 blur-3xl" />
