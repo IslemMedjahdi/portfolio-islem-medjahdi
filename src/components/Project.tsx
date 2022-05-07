@@ -27,11 +27,13 @@ export default function Project({
         <p className="mt-6 font-Space  text-gray-800 dark:text-gray-50">
           {description}
         </p>
-        <div className="relative z-10 mt-10 transition active:scale-95">
-          <div className="absolute top-0 -z-10 h-full w-full translate-x-2 -translate-y-2 rounded-md border-2 border-blue-600 "></div>
+        <div className="group relative z-10 mt-10 transition active:scale-95">
+          <div className="absolute top-0 -z-10 h-full w-full rounded-md border-2 border-blue-600"></div>
           <button
             onClick={() => window.open(github, "_blank")}
-            className="rounded-md bg-blue-600 px-8  py-2 font-Space text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95"
+            className={`rounded-md bg-blue-600 px-8 py-2 font-Space  text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95 group-hover:${
+              index % 2 === 0 ? "-translate-x-2" : "translate-x-2"
+            } group-hover:translate-y-2`}
           >
             View Project
           </button>

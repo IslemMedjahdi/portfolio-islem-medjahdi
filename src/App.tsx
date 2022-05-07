@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./screens/About";
+import Contact from "./screens/Contact";
+import Gallery from "./screens/Gallery";
 import Home from "./screens/Home";
 import Projects from "./screens/Projects";
 
@@ -29,6 +31,14 @@ function App() {
       <Route
         path="projects"
         element={<Projects theme={theme} toggleTheme={toggleTheme} />}
+      />
+      <Route
+        path="gallery"
+        element={<Gallery theme={theme} toggleTheme={toggleTheme} />}
+      />
+      <Route
+        path="contact"
+        element={<Contact theme={theme} toggleTheme={toggleTheme} />}
       />
     </Routes>
   );

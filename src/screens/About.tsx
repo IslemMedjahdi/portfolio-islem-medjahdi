@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 type AboutProps = {
   theme: boolean;
   toggleTheme: () => void;
@@ -27,6 +28,7 @@ const skills: TypeSkill[] = [
 
 export default function About({ theme, toggleTheme }: AboutProps) {
   const { ref, inView } = useInView();
+  const navigate = useNavigate();
   const animation = useAnimation();
   useEffect(() => {
     if (inView) {
@@ -41,7 +43,7 @@ export default function About({ theme, toggleTheme }: AboutProps) {
     if (!inView) {
       animation.start({ x: "-100vw" });
     }
-  }, [inView]);
+  }, [inView, animation]);
 
   return (
     <div className={`${theme ? "dark" : ""}`}>
@@ -49,7 +51,7 @@ export default function About({ theme, toggleTheme }: AboutProps) {
         <div className="absolute right-20 top-20 h-44 w-72 -rotate-[14deg] rounded-lg bg-blue-400 opacity-25 blur-3xl" />
         <div className="absolute left-20 bottom-1/3 h-44 w-52  -rotate-12 rounded-md bg-blue-400 opacity-25 blur-3xl" />
         <Header />
-        <main className="container mt-16 mb-[20vh] flex max-w-4xl flex-col items-start justify-center px-10">
+        <main className="container mt-12 mb-[20vh] flex max-w-4xl flex-col items-start justify-center px-10">
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -110,7 +112,10 @@ export default function About({ theme, toggleTheme }: AboutProps) {
           </motion.p>
           <div className="relative z-10 mt-10 transition active:scale-95">
             <div className="absolute top-0 -z-10 h-full w-full translate-x-2 -translate-y-2 rounded-md border-2 border-blue-600 "></div>
-            <button className="rounded-md bg-blue-600 px-8  py-2 font-Space text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95">
+            <button
+              onClick={() => navigate("/contact")}
+              className="rounded-md bg-blue-600 px-8  py-2 font-Space text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95"
+            >
               Say Hello
             </button>
           </div>

@@ -1,12 +1,14 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 type HomeProps = {
   theme: boolean;
   toggleTheme: () => void;
 };
 
 export default function Home({ theme, toggleTheme }: HomeProps) {
+  const navigate = useNavigate();
   return (
     <div className={`${theme ? "dark" : ""}`}>
       <div className="relative flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition dark:bg-[#111827]">
@@ -54,7 +56,10 @@ export default function Home({ theme, toggleTheme }: HomeProps) {
           </motion.div>
           <div className="relative z-10 mt-10 transition active:scale-95">
             <div className="absolute top-0 -z-10 h-full w-full translate-x-2 -translate-y-2 rounded-md border-2 border-blue-600 "></div>
-            <button className="rounded-md bg-blue-600 px-8  py-2 font-Space text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95">
+            <button
+              onClick={() => navigate("/contact")}
+              className="rounded-md bg-blue-600 px-8  py-2 font-Space text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95"
+            >
               Say Hello
             </button>
           </div>

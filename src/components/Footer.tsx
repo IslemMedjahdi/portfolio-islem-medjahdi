@@ -6,6 +6,7 @@ import { IoMailOutline, IoImagesOutline } from "react-icons/io5";
 import { FiLinkedin } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 type FooterProps = {
   location: number;
@@ -14,9 +15,18 @@ type FooterProps = {
 };
 
 export default function Footer({ theme, location, toggleTheme }: FooterProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (location > 4) {
+      ref.current?.scrollBy(window.innerWidth, 0);
+    }
+  }, []);
   return (
     <div className="fixed top-[87vh] z-50 flex  max-w-xs items-center space-x-3 rounded-xl bg-white drop-shadow-lg dark:border-[1px] dark:border-[#374151] dark:bg-gray-900  sm:max-w-xl">
-      <div className="flex items-center space-x-3 overflow-x-auto py-2 pl-5 scrollbar-none">
+      <div
+        ref={ref}
+        className="flex items-center space-x-3 overflow-x-auto py-2 pl-5 scrollbar-none"
+      >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}

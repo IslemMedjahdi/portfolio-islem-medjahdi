@@ -62,10 +62,10 @@ export default function Projects({ theme, toggleTheme }: ProjectsProps) {
   return (
     <div className={`${theme ? "dark" : ""}`}>
       <div className="relative flex h-screen flex-col items-center overflow-x-hidden bg-gray-50 transition dark:bg-[#111827]">
-        <div className="absolute right-20 top-20 h-44 w-72 -rotate-[14deg] rounded-lg bg-blue-400 opacity-25 blur-3xl" />
-        <div className="absolute left-20 bottom-1/3 h-44 w-52  -rotate-12 rounded-md bg-blue-400 opacity-25 blur-3xl" />
+        <div className="fixed right-20 top-20 h-44 w-72 -rotate-[14deg] rounded-lg bg-blue-400 opacity-25 blur-3xl" />
+        <div className="fixed left-20 bottom-1/3 h-44 w-52  -rotate-12 rounded-md bg-blue-400 opacity-25 blur-3xl" />
         <Header />
-        <main className="container mt-16 mb-[20vh] flex max-w-4xl flex-col items-start justify-center px-10">
+        <main className="container mt-12 mb-[20vh] flex max-w-4xl flex-col items-start justify-center px-10">
           <h1 className="font-Space text-4xl font-bold  text-gray-600 dark:text-white md:text-5xl">
             Projects 💡
           </h1>
@@ -75,6 +75,7 @@ export default function Projects({ theme, toggleTheme }: ProjectsProps) {
           <div>
             {projects.map((project, index) => (
               <motion.div
+                key={project.id}
                 initial={{ x: index % 2 === 0 ? "-100vw" : "100vw" }}
                 animate={{ x: 0 }}
                 transition={{
@@ -84,7 +85,7 @@ export default function Projects({ theme, toggleTheme }: ProjectsProps) {
                   type: "spring",
                 }}
               >
-                <Project index={index} key={project.id} {...project} />
+                <Project index={index} {...project} />
               </motion.div>
             ))}
           </div>
