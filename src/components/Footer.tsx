@@ -20,7 +20,7 @@ export default function Footer({ theme, location, toggleTheme }: FooterProps) {
     if (location > 4) {
       ref.current?.scrollBy(window.innerWidth, 0);
     }
-  }, []);
+  }, [location]);
   return (
     <div className="fixed top-[87vh] z-50 flex  max-w-xs items-center space-x-3 rounded-xl bg-white drop-shadow-lg dark:border-[1px] dark:border-[#374151] dark:bg-gray-900  sm:max-w-xl">
       <div

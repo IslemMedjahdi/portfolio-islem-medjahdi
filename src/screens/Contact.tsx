@@ -79,7 +79,7 @@ export default function Contact({ theme, toggleTheme }: ContactProps) {
             transition={{ duration: 0.6, type: "spring" }}
             className="mt-5 font-Space text-gray-600 dark:text-gray-50"
           >
-            feel free to contact me
+            Feel free to contact me ( ki_medjahdi@esi.dz )
           </motion.p>
           <form
             onSubmit={onsubmit}

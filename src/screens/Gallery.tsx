@@ -11,6 +11,11 @@ import img7 from "../assets/img7.jpg";
 import img8 from "../assets/img8.jpg";
 import img9 from "../assets/img9.jpg";
 import img10 from "../assets/img10.jpg";
+import img11 from "../assets/img11.jpg";
+import img12 from "../assets/img12.jpg";
+import img13 from "../assets/img13.jpg";
+import img14 from "../assets/img14.jpg";
+
 import { Helmet } from "react-helmet";
 
 type GalleryProps = {
@@ -20,53 +25,59 @@ type GalleryProps = {
 
 const photos = [
   {
-    id: 1,
+    alt: "img",
+    src: img14,
+  },
+  {
+    alt: "img",
+    src: img12,
+  },
+  {
+    alt: "img",
+    src: img13,
+  },
+  {
     src: img1,
     alt: "img",
   },
   {
     alt: "img",
-    id: 2,
+    src: img11,
+  },
+  {
+    alt: "img",
     src: img3,
   },
   {
     alt: "img",
-    id: 3,
     src: img4,
   },
   {
     alt: "img",
-    id: 4,
     src: img6,
   },
   {
     alt: "img",
-    id: 5,
     src: img5,
   },
   {
     alt: "img",
-    id: 6,
     src: img2,
   },
   {
     alt: "img",
-    id: 7,
     src: img7,
   },
   {
     alt: "img",
-    id: 8,
     src: img8,
   },
   {
     alt: "img",
-    id: 9,
     src: img9,
   },
   {
     alt: "img",
-    id: 10,
     src: img10,
   },
 ];
@@ -108,7 +119,7 @@ export default function Gallery({ theme, toggleTheme }: GalleryProps) {
                   duration: 0.6,
                   delay: index * 0.2,
                 }}
-                key={photo.id}
+                key={index}
               >
                 <motion.img
                   drag
