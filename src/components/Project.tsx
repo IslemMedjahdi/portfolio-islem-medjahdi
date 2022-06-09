@@ -1,5 +1,4 @@
-import React from "react";
-
+import { AiOutlineEye } from "react-icons/ai";
 type ProjectProps = {
   id?: number;
   name: string;
@@ -43,7 +42,7 @@ export default function Project({
         onClick={() => {
           window.open(livePreview, "_blank");
         }}
-        className={`group relative -order-1 cursor-pointer overflow-hidden  md:p-5 ${
+        className={`group relative -order-1 cursor-pointer   ${
           index % 2 === 0 ? "md:order-none" : "md:-order-1"
         } `}
       >
@@ -52,6 +51,10 @@ export default function Project({
           src={screenshot}
           alt="screenshot"
         />
+        <div className="absolute top-0 left-0 flex h-full w-full items-center justify-center space-x-2 rounded-2xl bg-zinc-900 opacity-0 transition duration-300 group-hover:scale-105 group-hover:bg-opacity-60 group-hover:opacity-100 ">
+          <AiOutlineEye className="text-lg font-bold text-white" />
+          <p className="font-Yellowtail text-2xl text-white">Preview</p>
+        </div>
       </div>
     </div>
   );

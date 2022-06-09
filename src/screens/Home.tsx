@@ -1,17 +1,16 @@
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 type HomeProps = {
   theme: boolean;
-  toggleTheme: () => void;
+  setLocation: (n: number) => void;
 };
 
-export default function Home({ theme, toggleTheme }: HomeProps) {
+export default function Home({ theme, setLocation }: HomeProps) {
   const navigate = useNavigate();
   return (
-    <div className={`${theme ? "dark" : ""}`}>
+    <div className={`${theme ? "dark" : ""} w-full`}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Portfolio | Medjahdi </title>
@@ -60,16 +59,18 @@ export default function Home({ theme, toggleTheme }: HomeProps) {
             </p>
           </motion.div>
           <div className="relative z-10 mt-10 transition active:scale-95">
-            <div className="absolute top-0 -z-10 h-full w-full translate-x-2 -translate-y-2 rounded-md border-2 border-blue-600 "></div>
+            <div className="absolute top-0 -z-10 h-full w-full  rounded-md border-2 border-blue-600 "></div>
             <button
-              onClick={() => navigate("/contact")}
-              className="rounded-md bg-blue-600 px-8  py-2 font-Space text-gray-50 transition duration-300 hover:bg-blue-500 active:scale-95"
+              onClick={() => {
+                navigate("/contact");
+                setLocation(6);
+              }}
+              className="rounded-md bg-blue-600 px-8 py-2 font-Space  text-gray-50 transition duration-300 hover:translate-x-2 hover:translate-y-2 hover:bg-blue-500 active:scale-95"
             >
               Say Hello
             </button>
           </div>
         </main>
-        <Footer theme={theme} toggleTheme={toggleTheme} location={0} />
       </div>
     </div>
   );

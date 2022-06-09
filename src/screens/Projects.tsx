@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Project from "../components/Project";
 import { motion } from "framer-motion";
@@ -6,10 +5,10 @@ import markdownScreenShot from "../assets/markdownScreenShot.png";
 import CountryFinderScreenShot from "../assets/CountryFinderScreenShot.png";
 import APSScreenShot from "../assets/APSScreenShot.png";
 import DOMEScreenShot from "../assets/DOMEScreenShot.png";
+import whatsappScreenshot from "../assets/whatsappScreenshot.png";
 import { Helmet } from "react-helmet";
 type ProjectsProps = {
   theme: boolean;
-  toggleTheme: () => void;
 };
 
 type ProjectType = {
@@ -22,6 +21,14 @@ type ProjectType = {
 };
 
 const projects: ProjectType[] = [
+  {
+    id: 0,
+    name: "Whatsapp Desktop Clone",
+    description: "Responsive realtime chat app clone to whatsapp",
+    github: "https://github.com/IslemMedjahdi/whatsapp-v2-clone",
+    livePreview: "https://whatsapp-v2-clone.vercel.app/",
+    screenshot: whatsappScreenshot,
+  },
   {
     id: 1,
     name: "Markdown Editor",
@@ -59,9 +66,9 @@ const projects: ProjectType[] = [
     screenshot: DOMEScreenShot,
   },
 ];
-export default function Projects({ theme, toggleTheme }: ProjectsProps) {
+export default function Projects({ theme }: ProjectsProps) {
   return (
-    <div className={`${theme ? "dark" : ""}`}>
+    <div className={`${theme ? "dark" : ""} w-full`}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Portfolio | Medjahdi | Projects </title>
@@ -95,7 +102,6 @@ export default function Projects({ theme, toggleTheme }: ProjectsProps) {
             ))}
           </div>
         </main>
-        <Footer location={1} theme={theme} toggleTheme={toggleTheme} />
       </div>
     </div>
   );

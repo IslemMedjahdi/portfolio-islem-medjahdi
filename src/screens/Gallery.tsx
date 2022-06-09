@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import img1 from "../assets/img1.jpg";
@@ -20,7 +19,6 @@ import { Helmet } from "react-helmet";
 
 type GalleryProps = {
   theme: boolean;
-  toggleTheme: () => void;
 };
 
 const photos = [
@@ -82,9 +80,9 @@ const photos = [
   },
 ];
 
-export default function Gallery({ theme, toggleTheme }: GalleryProps) {
+export default function Gallery({ theme }: GalleryProps) {
   return (
-    <div className={`${theme ? "dark" : ""}`}>
+    <div className={`${theme ? "dark" : ""} w-full`}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Portfolio | Medjahdi | Gallery</title>
@@ -133,7 +131,6 @@ export default function Gallery({ theme, toggleTheme }: GalleryProps) {
             ))}
           </div>
         </main>
-        <Footer theme={theme} toggleTheme={toggleTheme} location={5} />
       </div>
     </div>
   );

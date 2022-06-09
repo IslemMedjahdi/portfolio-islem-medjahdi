@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
@@ -7,10 +6,9 @@ import { Helmet } from "react-helmet";
 
 type ContactProps = {
   theme: boolean;
-  toggleTheme: () => void;
 };
 
-export default function Contact({ theme, toggleTheme }: ContactProps) {
+export default function Contact({ theme }: ContactProps) {
   const [loading, setLoading] = useState(false);
   const [contactData, setContactData] = useState({
     fullName: "",
@@ -57,7 +55,7 @@ export default function Contact({ theme, toggleTheme }: ContactProps) {
     }
   };
   return (
-    <div className={`${theme ? "dark" : ""}`}>
+    <div className={`${theme ? "dark" : ""} w-full`}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Portfolio | Medjahdi | Contact </title>
@@ -143,7 +141,6 @@ export default function Contact({ theme, toggleTheme }: ContactProps) {
             </div>
           </form>
         </main>
-        <Footer theme={theme} toggleTheme={toggleTheme} location={6} />
       </div>
     </div>
   );
